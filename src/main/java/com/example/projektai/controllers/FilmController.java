@@ -1,4 +1,4 @@
-package com.example.projektai.controlers;
+package com.example.projektai.controllers;
 
 
 import com.example.projektai.entity.Film;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/films")
-public class FilmControler {
+public class FilmController {
 
     @Autowired
     private FilmService filmService;
