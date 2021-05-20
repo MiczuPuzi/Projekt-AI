@@ -1,30 +1,40 @@
 package com.example.projektai.entity;
 
-import com.sun.istack.NotNull;
-import lombok.NoArgsConstructor;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@NoArgsConstructor
+@Getter
+@Setter
 public class Director {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "director_id")
-    private Long directorId;
+    private Long id;
 
     @NotNull
+    @NotEmpty
     private String name;
 
     @NotNull
+    @NotEmpty
     private String lastName;
 
-    @NotNull
+
     private int age;
 
-    @OneToMany(cascade = {CascadeType.REMOVE},fetch = FetchType.EAGER)
-    @JoinColumn(name = "film_id")
+    @NotNull
+    @OneToMany(cascade = {CascadeType.ALL},fetch = FetchType.EAGER,mappedBy = "director")
     private Set<Film> films;
+
+    public Director(){
+        this.films = new HashSet<>();
+    }
 }

@@ -1,40 +1,52 @@
 package com.example.projektai.entity;
 
-import com.sun.istack.NotNull;
-import lombok.NoArgsConstructor;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-@NoArgsConstructor
+
+@Getter
+@Setter
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "client_id")
-    private Long clientId;
+    private Long id;
 
     @NotNull
+    @NotEmpty
     private String name;
 
     @NotNull
+    @NotEmpty
     private String lastName;
 
-    @NotNull
     private int phoneNumber;
 
-    @NotNull
     private int age;
 
     @NotNull
+    @NotEmpty
     private String email;
 
-    @ManyToMany
-    @JoinColumn(name = "seance_id")
-    private List<Seance> seances;
+    @NotNull
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER, mappedBy = "clients")
+    private List<FilmScreening> filmScreenings;
 
-    @OneToMany(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "opinion_id")
+    @NotNull
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "client")
     private Set<Opinion> opinions;
+
+    public Client() {
+        this.filmScreenings = new ArrayList<>();
+        this.opinions = new HashSet<>();
+    }
 }

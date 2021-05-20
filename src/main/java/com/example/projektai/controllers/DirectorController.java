@@ -1,7 +1,6 @@
 package com.example.projektai.controllers;
 
 import com.example.projektai.entity.Director;
-import com.example.projektai.entity.Opinion;
 import com.example.projektai.services.DirectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

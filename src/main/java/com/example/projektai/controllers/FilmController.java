@@ -1,6 +1,5 @@
 package com.example.projektai.controllers;
 
-
 import com.example.projektai.entity.Film;
 import com.example.projektai.services.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;

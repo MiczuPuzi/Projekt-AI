@@ -1,31 +1,36 @@
 package com.example.projektai.entity;
 
-import com.sun.istack.NotNull;
+
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
 @NoArgsConstructor
+@Getter
+@Setter
 public class Opinion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "opinion_id")
-    private Long opinionId;
+    private Long id;
 
-    @NotNull
     private int rate;
 
     @NotNull
+    @NotEmpty
     private String content;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_id")
     private Client client;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "film_id")
     private Film film;
 }

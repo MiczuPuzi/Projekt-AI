@@ -2,35 +2,47 @@ package com.example.projektai.entity;
 
 
 
-import com.sun.istack.NotNull;
-import lombok.NoArgsConstructor;
+
+import lombok.Getter;
+
+import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@NoArgsConstructor
+
+@Getter
+@Setter
 public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "film_id")
-    private Long filmId;
+    private Long id;
 
     @NotNull
-    private String name;
+    @NotEmpty
+    private String title;
 
     @NotNull
-    private String type;
+    @NotEmpty
+    private String genre;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "director_id")
     private Director director;
 
-    @OneToMany(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "seance_id")
-    private Set<Seance> seances;
+    @NotNull
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "film")
+    private Set<FilmScreening> filmScreenings;
 
-    @OneToMany(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "opinion_id")
+    @NotNull
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "film")
     private Set<Opinion> opinions;
+
+    public Film(){
+        this.filmScreenings = new HashSet<>();
+        this.opinions = new HashSet<>();
+    }
 }

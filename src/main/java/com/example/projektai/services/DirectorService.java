@@ -1,6 +1,5 @@
 package com.example.projektai.services;
 
-import com.example.projektai.entity.Client;
 import com.example.projektai.entity.Director;
 import com.example.projektai.repository.DirectorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
