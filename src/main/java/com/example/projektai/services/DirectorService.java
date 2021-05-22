@@ -1,7 +1,7 @@
 package com.example.projektai.services;
 
-import com.example.projektai.entity.Director;
-import com.example.projektai.repository.DirectorRepository;
+import com.example.projektai.entities.Director;
+import com.example.projektai.repositories.DirectorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

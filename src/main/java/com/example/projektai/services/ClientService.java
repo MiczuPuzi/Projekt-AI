@@ -1,7 +1,7 @@
 package com.example.projektai.services;
 
-import com.example.projektai.entity.Client;
-import com.example.projektai.repository.ClientRepository;
+import com.example.projektai.entities.Client;
+import com.example.projektai.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

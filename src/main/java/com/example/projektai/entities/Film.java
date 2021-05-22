@@ -1,4 +1,4 @@
-package com.example.projektai.entity;
+package com.example.projektai.entities;
 
 
 

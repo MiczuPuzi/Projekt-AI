@@ -1,6 +1,6 @@
 package com.example.projektai.controllers;
 
-import com.example.projektai.entity.Client;
+import com.example.projektai.entities.Client;
 import com.example.projektai.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/clients")
 public class ClientController {
     @Autowired

@@ -1,6 +1,6 @@
-package com.example.projektai.repository;
+package com.example.projektai.repositories;
 
-import com.example.projektai.entity.Film;
+import com.example.projektai.entities.Film;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

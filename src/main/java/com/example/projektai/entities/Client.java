@@ -1,4 +1,4 @@
-package com.example.projektai.entity;
+package com.example.projektai.entities;
 
 
 import lombok.Getter;
@@ -7,9 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -29,8 +27,6 @@ public class Client {
     @NotEmpty
     private String lastName;
 
-    private int phoneNumber;
-
     private int age;
 
     @NotNull
@@ -38,15 +34,10 @@ public class Client {
     private String email;
 
     @NotNull
-    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER, mappedBy = "clients")
-    private List<FilmScreening> filmScreenings;
-
-    @NotNull
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "client")
     private Set<Opinion> opinions;
 
     public Client() {
-        this.filmScreenings = new ArrayList<>();
         this.opinions = new HashSet<>();
     }
 }

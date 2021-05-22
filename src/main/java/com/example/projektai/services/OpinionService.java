@@ -1,7 +1,7 @@
 package com.example.projektai.services;
 
-import com.example.projektai.entity.Opinion;
-import com.example.projektai.repository.OpinionRepository;
+import com.example.projektai.entities.Opinion;
+import com.example.projektai.repositories.OpinionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

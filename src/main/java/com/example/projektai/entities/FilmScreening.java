@@ -1,4 +1,4 @@
-package com.example.projektai.entity;
+package com.example.projektai.entities;
 
 
 import lombok.Getter;
@@ -7,8 +7,6 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -24,15 +22,7 @@ public class FilmScreening {
     private int roomNumber;
 
     @NotNull
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "film_screenings_clients",joinColumns = @JoinColumn(name = "film_screening_id"),inverseJoinColumns = @JoinColumn(name = "client_id"))
-    private List<Client> clients;
-
-    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     private Film film;
 
-    public FilmScreening(){
-        this.clients = new ArrayList<>();
-    }
 }

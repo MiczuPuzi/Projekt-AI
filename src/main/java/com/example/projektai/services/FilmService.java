@@ -1,7 +1,7 @@
 package com.example.projektai.services;
 
-import com.example.projektai.entity.Film;
-import com.example.projektai.repository.FilmRepository;
+import com.example.projektai.entities.Film;
+import com.example.projektai.repositories.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
