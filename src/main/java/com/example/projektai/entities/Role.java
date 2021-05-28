@@ -3,6 +3,7 @@ package com.example.projektai.entities;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.NaturalId;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -24,8 +25,11 @@ public class Role implements GrantedAuthority {
 
     @NotEmpty
     @NotNull
-    private String name;
+    @NaturalId
+    @Enumerated(EnumType.STRING)
+    private RoleName name;
 
+    @NotNull
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<User> users;
 
@@ -50,8 +54,9 @@ public class Role implements GrantedAuthority {
         return Objects.hash(id, name, users);
     }
 
+
     @Override
     public String getAuthority() {
-        return name;
+        return name.toString();
     }
 }

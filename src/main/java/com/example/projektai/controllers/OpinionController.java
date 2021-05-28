@@ -16,26 +16,20 @@ public class OpinionController {
     @Autowired
     private OpinionService opinionService;
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<Opinion>> getOpinions(){
         List<Opinion> opinions = opinionService.getOpinions();
         return ResponseEntity.ok(opinions);
     }
-    @PostMapping("/opinion")
+    @PostMapping
     public ResponseEntity<Opinion> createOpinion(@RequestBody Opinion opinion){
         Opinion createdOpinion = opinionService.createOpinion(opinion);
         return ResponseEntity.status(201).body(createdOpinion);
     }
 
-    @DeleteMapping("/opinion")
+    @DeleteMapping
     public ResponseEntity<Opinion> deleteOpinion(@RequestBody Opinion opinion){
         Opinion deletedOpinion = opinionService.deleteOpinion(opinion);
         return ResponseEntity.ok(deletedOpinion);
-    }
-
-    @PutMapping("/opinion")
-    public ResponseEntity<Opinion> updateOpinion(@RequestBody Opinion opinion){
-        Opinion updatedOpinion = opinionService.updateOpinion(opinion);
-        return ResponseEntity.ok(updatedOpinion);
     }
 }

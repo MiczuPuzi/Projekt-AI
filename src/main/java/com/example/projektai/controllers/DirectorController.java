@@ -15,24 +15,24 @@ public class DirectorController {
     @Autowired
     private DirectorService directorService;
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<Director>> getDirectors(){
         List<Director> directors = directorService.getDirectors();
         return ResponseEntity.ok(directors);
     }
-    @PostMapping("/director")
+    @PostMapping
     public ResponseEntity<Director> createOpinion(@RequestBody Director director){
         Director createdDirector = directorService.createDirector(director);
         return ResponseEntity.status(201).body(createdDirector);
     }
 
-    @DeleteMapping("/director")
+    @DeleteMapping
     public ResponseEntity<Director> deleteOpinion(@RequestBody Director director){
         Director deletedDirector = directorService.deleteDirector(director);
         return ResponseEntity.ok(deletedDirector);
     }
 
-    @PutMapping("/director")
+    @PutMapping
     public ResponseEntity<Director> updateOpinion(@RequestBody Director director){
         Director updatedDirector = directorService.updateDirector(director);
         return ResponseEntity.ok(updatedDirector);

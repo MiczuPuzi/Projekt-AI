@@ -16,22 +16,22 @@ public class FilmScreeningController {
     @Autowired
     private FilmScreeningService filmScreeningService;
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<FilmScreening>> getFilmScreenings(){
         List<FilmScreening> filmScreenings = filmScreeningService.getFilmScreenings();
         return ResponseEntity.ok(filmScreenings);
     }
-    @PostMapping("/FilmScreening")
+    @PostMapping
     public ResponseEntity<FilmScreening> createFilmScreening(@RequestBody FilmScreening filmScreening){
         FilmScreening createdFilmScreening = filmScreeningService.createFilmScreening(filmScreening);
         return ResponseEntity.status(201).body(createdFilmScreening);
     }
-    @DeleteMapping("/FilmScreening")
+    @DeleteMapping
     public ResponseEntity<FilmScreening> deleteFilmScreening(@RequestBody FilmScreening filmScreening){
         FilmScreening deletedFilmScreening = filmScreeningService.deleteFilmScreening(filmScreening);
         return ResponseEntity.ok(deletedFilmScreening);
     }
-    @PutMapping("/FilmScreening")
+    @PutMapping
     public ResponseEntity<FilmScreening> updatedFilmScreening(@RequestBody FilmScreening filmScreening){
         FilmScreening updatedFilmScreening = filmScreeningService.updateFilmScreening(filmScreening);
         return ResponseEntity.ok(updatedFilmScreening);

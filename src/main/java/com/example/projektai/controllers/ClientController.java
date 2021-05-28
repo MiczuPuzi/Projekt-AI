@@ -15,24 +15,24 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<Client>> getClients(){
         List<Client> clients = clientService.getClients();
         return ResponseEntity.ok(clients);
     }
-    @PostMapping("/client")
+    @PostMapping
     public ResponseEntity<Client> createOpinion(@RequestBody Client client){
         Client createdClient = clientService.createClient(client);
         return ResponseEntity.status(201).body(createdClient);
     }
 
-    @DeleteMapping("/client")
+    @DeleteMapping
     public ResponseEntity<Client> deleteOpinion(@RequestBody Client client){
         Client deletedClient = clientService.deleteClient(client);
         return ResponseEntity.ok(deletedClient);
     }
 
-    @PutMapping("/client")
+    @PutMapping
     public ResponseEntity<Client> updateOpinion(@RequestBody Client client){
         Client updatedClient = clientService.updateClient(client);
         return ResponseEntity.ok(updatedClient);

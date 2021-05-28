@@ -9,7 +9,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query(nativeQuery = true, value = "SELECT * from users where username = ?1 limit 1")
+    boolean existsByUsername(String username);
+
     User findByUsername(String username);
 
 }

@@ -39,6 +39,12 @@ public class User implements UserDetails {
         this.roles = new HashSet<>();
     }
 
+    public User(String username, String password) {
+        this();
+        this.username = username;
+        this.password = password;
+    }
+
     public void grantRole(Role role) {
         if (role == null) return;
         this.roles.add(role);
@@ -57,12 +63,12 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return this.username;
     }
 
     @Override
